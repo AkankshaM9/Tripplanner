@@ -16,7 +16,6 @@ class Hotspot(models.Model):
     distance = models.IntegerField()
 
 
-
 class Hotel(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     name = models.CharField(max_length=45)

@@ -1,17 +1,16 @@
 <html>
-    <body>
-{% extends 'base.html' %}
-
-{% block content %}
-  <h2>Login</h2>
-  {% if error %}
+  <body>
+    {% extends 'base.html' %} {% block content %}
+    <h2>Login</h2>
+    {% if error %}
     <p>{{ error }}</p>
-  {% endif %}
-  <form method="POST">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Login</button>
-  </form>
-{% endblock %}
-    </body></html>
+    {% endif %}
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" />
+      <input type="password" name="password" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form>
+    {% endblock %}
+  </body>
+</html>
