@@ -25,7 +25,14 @@ class Hotel(models.Model):
 
 class Location(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    payment = models.IntegerField()    
 
 class Itenary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    startdate = models.DateTimeField()
+    enddate = models.DateTimeField()
+    def duration(self):
+        return ((self.enddate - self.startdate).total_seconds)
