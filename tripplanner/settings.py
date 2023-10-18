@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Trip Planner
+
+AUTH_USER_MODEL = "trips.models.User"
 
 # Application definition
 
