@@ -22,9 +22,6 @@ class Hotel(models.Model):
     capacity = models.IntegerField() #total cap
     occupancy = models.IntegerField()
 
-class Location(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     payment = models.IntegerField()    
