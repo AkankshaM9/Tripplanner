@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+from os import getenv
 from pathlib import Path
-
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,11 +80,11 @@ WSGI_APPLICATION = 'tripplanner.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "tripplanner",
-        "USER": "root",
-        "PASSWORD": "wd4j3kz4qi",
-        "HOST": "localhost",
-        "PORT": "3306"
+        'NAME': getenv("DB_NAME"),#"tripplanner",
+        "USER": getenv("DB_USER"), #"root",
+        "PASSWORD": getenv("DB_PASSWORD"), #"wd4j3kz4qi",
+        "HOST": getenv("DB_HOST"), #"localhost",
+        "PORT": getenv("DB_PORT"), #"3306"
     }
 }
 

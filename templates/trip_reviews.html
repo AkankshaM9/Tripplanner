@@ -1,12 +1,12 @@
 <html>
-    <body>
-{% block content %}
-  <h2>Trip Reviews</h2>
-  {% for review in reviews %}
+  <body>
+    {% block content %}
+    <h2>Trip Reviews</h2>
+    {% for review in reviews %}
     <p>{{ review.user.username }} - Rating: {{ review.rating }}</p>
     <p>{{ review.comment }}</p>
-  {% empty %}
+    {% empty %}
     <p>No reviews found.</p>
-  {% endfor %}
-{% endblock %}
-    </body></html>
+    {% endfor %} {% endblock %}
+  </body>
+</html>

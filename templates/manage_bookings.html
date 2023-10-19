@@ -1,11 +1,11 @@
 <html>
-    <body>
-{% block content %}
-  <h2>Manage Bookings</h2>
-  {% for booking in bookings %}
+  <body>
+    {% block content %}
+    <h2>Manage Bookings</h2>
+    {% for booking in bookings %}
     <p>{{ booking.trip.title }} - {{ booking.date }}</p>
-  {% empty %}
+    {% empty %}
     <p>No bookings found.</p>
-  {% endfor %}
-{% endblock %}
-    </body></html>
+    {% endfor %} {% endblock %}
+  </body>
+</html>

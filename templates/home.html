@@ -1,48 +1,51 @@
-{% extends "base.html" %}
-
+{% extends "base.html" %} 
 {% block content %}
 <div class="container mt-5">
-    <div class="text-center">
-        <!-- <img src="{% static 'images/logo.png' %}" alt="Your Logo" class="img-logo"> -->
+  <div class="text-center">
+    <!-- <img src="{% static 'images/logo.png' %}" alt="Your Logo" class="img-logo"> -->
+  </div>
+  <h1 class="text-center my-4">Explore Your Dream Trips</h1>
+
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <!-- <img src="{% static 'images/manali.jpg' %}" alt="Manali" class="card-img-top"> -->
+        <div class="card-body">
+          <h5 class="card-title">Trip to Manali</h5>
+          <p class="card-text">Explore the stunning beauty of Manali.</p>
+          <p class="card-text">Price: ${{ manali_price }}</p>
+          <!-- <a href="{% url 'trip_detail' trip_id=manali_id %}" class="btn btn-primary">View Details</a> -->
+        </div>
+      </div>
     </div>
-    <h1 class="text-center my-4">Explore Your Dream Trips</h1>
 
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <!-- <img src="{% static 'images/manali.jpg' %}" alt="Manali" class="card-img-top"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Trip to Manali</h5>
-                    <p class="card-text">Explore the stunning beauty of Manali.</p>
-                    <p class="card-text">Price: ${{ manali_price }}</p>
-                    <!-- <a href="{% url 'trip_detail' trip_id=manali_id %}" class="btn btn-primary">View Details</a> -->
-                </div>
-            </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <!-- <img src="{% static 'images/goa.jpg' %}" alt="Goa" class="card-img-top"> -->
+        <div class="card-body">
+          <h5 class="card-title">Trip to Goa</h5>
+          <p class="card-text">
+            Experience the vibrant culture and beaches of Goa.
+          </p>
+          <p class="card-text">Price: ${{ goa_price }}</p>
+          <!-- <a href="{% url 'trip_detail' trip_id=goa_id %}" class="btn btn-primary">View Details</a> -->
         </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <!-- <img src="{% static 'images/goa.jpg' %}" alt="Goa" class="card-img-top"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Trip to Goa</h5>
-                    <p class="card-text">Experience the vibrant culture and beaches of Goa.</p>
-                    <p class="card-text">Price: ${{ goa_price }}</p>
-                    <!-- <a href="{% url 'trip_detail' trip_id=goa_id %}" class="btn btn-primary">View Details</a> -->
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <!-- <img src="{% static 'images/darjeeling.jpg' %}" alt="Darjeeling" class="card-img-top"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Trip to Darjeeling</h5>
-                    <p class="card-text">Enjoy the serene hills and tea gardens of Darjeeling.</p>
-                    <p class="card-text">Price: ${{ darjeeling_price }}</p>
-                    <!-- <a href="{% url 'trip_detail' trip_id=darjeeling_id %}" class="btn btn-primary">View Details</a> -->
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <!-- <img src="{% static 'images/darjeeling.jpg' %}" alt="Darjeeling" class="card-img-top"> -->
+        <div class="card-body">
+          <h5 class="card-title">Trip to Darjeeling</h5>
+          <p class="card-text">
+            Enjoy the serene hills and tea gardens of Darjeeling.
+          </p>
+          <p class="card-text">Price: ${{ darjeeling_price }}</p>
+          <!-- <a href="{% url 'trip_detail' trip_id=darjeeling_id %}" class="btn btn-primary">View Details</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -1,24 +1,25 @@
 <html>
-    <body>
-        <h2>{{ trip.title }}</h2>
-<p>{{ trip.description }}</p>
-<p>Price: ${{ trip.price }}</p>
+  <body>
+    <h2>{{ trip.title }}</h2>
+    <p>{{ trip.description }}</p>
+    <p>Price: ${{ trip.price }}</p>
 
-<h3>Places:</h3>
-{% for place in trip.place_set.all %}
+    <h3>Places:</h3>
+    {% for place in trip.place_set.all %}
     <h4>{{ place.name }}</h4>
     <p>{{ place.description }}</p>
-{% endfor %}
+    {% endfor %}
 
-<h3>Hotels:</h3>
-{% for hotel in trip.hotel_set.all %}
+    <h3>Hotels:</h3>
+    {% for hotel in trip.hotel_set.all %}
     <h4>{{ hotel.name }}</h4>
     <p>{{ hotel.address }}</p>
-{% endfor %}
+    {% endfor %}
 
-<h3>Food:</h3>
-{% for food in trip.food_set.all %}
+    <h3>Food:</h3>
+    {% for food in trip.food_set.all %}
     <h4>{{ food.name }}</h4>
     <p>{{ food.description }}</p>
-{% endfor %}
-    </body></html>
+    {% endfor %}
+  </body>
+</html>
