@@ -18,22 +18,23 @@ def trip_detail(request, trip_id):
 def register(request):
     if request.method == 'POST':
     # Get form values
-    name = request.POST['name']
-    username = request.POST['username']
-    email = request.POST['email']
-    password = request.POST['password']
-    password2 = request.POST['password2']
+        name = request.POST['name']
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+    else:
+        return render(request, 'register.html')
 
     # Check if passwords match
     if password == password2:
       # Check username
-      if User.objects.filter(username=username).exists():
-        messages.error(request, 'That username is taken')
-        return redirect('register')
-      else:
-        if User.objects.filter(email=email).exists():
-          messages.error(request, 'That email is being used')
-          return redirect('register')
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'That username is taken')
+            return redirect('register')
+        elif User.objects.filter(email=email).exists():
+                messages.error(request, 'That email is being used')
+                return redirect('register')
         else:
           # Looks good
           user = User.objects.create_user(username=username, password=password,email=email, first_name=first_name, last_name=last_name)
@@ -47,8 +48,7 @@ def register(request):
     else:
       messages.error(request, 'Passwords do not match')
       return redirect('register')
-  else:
-    return render(request, 'register.html')
+
 
 
 """    if request.method == 'POST':
@@ -62,21 +62,21 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 """
 def login(request):
+    user = None
     if request.method == 'POST':
-    username = request.POST['username']
-    password = request.POST['password']
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
 
-    user = auth.authenticate(username=username, password=password)
-
-    if user is not None:
-      auth.login(request, user)
-      messages.success(request, 'You are now logged in')
-      return redirect('dashboard')
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'You are now logged in')
+            return redirect('dashboard')
+        else:
+            messages.error(request, 'Invalid credentials')
+            return redirect('login')
     else:
-      messages.error(request, 'Invalid credentials')
-      return redirect('login')
-  else:
-    return render(request, 'login.html')
+        return render(request, 'login.html')
 
     """if request.method == 'POST':
         # Handle login form submission
@@ -95,10 +95,10 @@ def login(request):
         return render(request, 'login.html')"""
 
 def user_logout(request):
-     if request.method == 'POST':
-    auth.logout(request)
-    messages.success(request, 'You are now logged out')
-    return redirect('login')
+    if request.method == 'POST':
+        auth.logout(request)
+        messages.success(request, 'You are now logged out')
+        return redirect('login')
 
     """logout(request)
     return redirect('login')
