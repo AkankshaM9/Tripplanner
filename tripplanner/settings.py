@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 # Trip Planner
 
-AUTH_USER_MODEL = "trips.models.User"
+AUTH_USER_MODEL = "trips.User"
 
 # Application definition
 
